@@ -1,6 +1,14 @@
 FROM jenkins
 MAINTAINER zsx <thinkernel@gmail.com>
 
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+	vim \
+	sudo \
+  && rm -rf /var/lib/apt/lists/*
+
+  
+RUN echo 'jenkins ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
 # Install plugins
 COPY plugins.txt /usr/local/etc/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/local/etc/plugins.txt
