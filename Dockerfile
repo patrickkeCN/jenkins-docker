@@ -1,4 +1,4 @@
-ROM patrickke/offical-jenkins
+FROM patrickke/offical-jenkins
 MAINTAINER Ke Peng <kepeng1314@gmail.com>
 
 # Install plugins
